@@ -71,6 +71,8 @@ val root = (project in file("."))
 
     // Disable tests when building assembly
     test in assembly := {},
+
+    fork in run := true,
     // Re-enables inclusion of provided libraries when executing 'run' and 'runMain' tasks
     run in Compile := Defaults.runTask(fullClasspath in Compile, mainClass in (Compile, run), runner in (Compile, run)).evaluated,
     runMain in Compile := Defaults.runMainTask(fullClasspath in Compile, runner in (Compile, run)).evaluated,
